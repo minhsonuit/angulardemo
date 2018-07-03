@@ -5,6 +5,6 @@ import { WelcomeComponent } from 'src/app/home/welcome.component';
 import { StoreComponent } from 'src/app/store/store.component';
 
 export const storeRoutes: Routes = [
-    { path: 'store', component:StoreComponent },
+    { path: 'stores', component:StoreComponent },
 ];
 export const storeRouting: ModuleWithProviders = RouterModule.forChild(storeRoutes);
