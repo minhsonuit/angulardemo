@@ -1,7 +1,9 @@
+import { UserService } from './_services/user.service';
+import { AuthGuard } from './_guards/auth.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule }    from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
  import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { appRouting } from 'src/app/app.routing';
@@ -15,6 +17,9 @@ import { MenuComponent } from './menu/menu.component';
 import { SettingComponent } from './setting/setting.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { StoreDetailComponent } from './store-detail/store-detail.component';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
+
 
 
 
@@ -29,7 +34,9 @@ import { RegisterComponent } from './register/register.component';
     MenuComponent,
     SettingComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+
+
 
   ],
   imports: [
@@ -37,9 +44,16 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     appRouting,
     StoreModule,
-    storeRouting
+    storeRouting,
+    ReactiveFormsModule,
+    
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AuthGuard,UserService],
+  bootstrap: [AppComponent],
+  schemas: [
+    //CUSTOM_ELEMENTS_SCHEMA,
+    /*NO_ERRORS_SCHEMA*/
+  ],
+  exports:[],
 })
 export class AppModule { }

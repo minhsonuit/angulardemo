@@ -1,34 +1,25 @@
 
-    <h2>Basic Table</h2>
-    <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>            
+    <h2>Danh sách cửa hàng </h2>
+<app-store-detail [store]="selectedStore" (closeClick)="onClearSelectStore()" ></app-store-detail>           
     <table class="table" *ngIf='stores && stores.length'>
       <thead>
         <tr>
-          <th>Code</th>
-          <th>Lastname</th>
-          <th>Email</th>
-          <th>xx</th>
+          <th class="col-xs-1">Mã</th>
+          <th class="col-xs-4">Tên cửa hàng</th>
+          <th class="col-xs-5">Đia chỉ</th>
+          <th class="col-xs-2">Quận</th>
         </tr>
       </thead>
       <tbody>
-          <tr *ngFor="let store of stores">
+          <tr *ngFor="let store of stores" (click)="onSelectedStore(store)" >
 
               
-              <td>{{store.code}}</td>
-              <td>{{store.name | uppercase}}</td>
-              <td>{{store.address}}</td>
-              <td>{{store.province}}</td>
-            
-            </tr>
-        <tr>
-          <td>Mary</td>
-          <td>Moe</td>
-          <td>mary@example.com</td>
-        </tr>
-        <tr>
-          <td>July</td>
-          <td>Dooley</td>
-          <td>july@example.com</td>
-        </tr>
+              <td class="col-xs-1"><a routerLink="/ss"> {{store.code}}</a></td>
+              <td class="col-xs-4">{{store.name | uppercase}}</td>
+              <td class="col-xs-5">{{store.address}}</td>
+              <td class="col-xs-2">{{store.district}}</td>            
+            </tr>        
       </tbody>
+      
     </table>
+    

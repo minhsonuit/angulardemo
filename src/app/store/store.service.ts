@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { IStore } from 'src/app/store/store';
 import { Response } from '@angular/http';
 
-const api="http://devapi.pharmacity.vn/api/Ecomerce/allStore";// "http://career.pharmacity.vn/ec2/api/stores";
+const api="https://sgpmcaxdev01.pharmacity.vn:78/api/Ecomerce/allStore";// "http://career.pharmacity.vn/ec2/api/stores";
 @Injectable({
   providedIn: 'root'
 })

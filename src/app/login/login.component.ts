@@ -1,5 +1,7 @@
+import { UserService } from './../_services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -13,7 +15,8 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
   constructor(
     private route: ActivatedRoute,
-    private router: Router/*,
+    private router: Router,
+    private authenticationService:UserService/*,
     private authenticationService: AuthenticationService,
   private alertService: AlertService*/) { }
 
@@ -23,10 +26,20 @@ ngOnInit() {
 
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    console.log(this.returnUrl)
 }
 
 login() {
     this.loading = true;
+    this.authenticationService.userAuthentication(this.model.username, this.model.password)
+    .subscribe((data:any)=>{
+        localStorage.setItem('userToken',data.access_token);
+        this.authenticationService.getLoginData();
+        this.router.navigate([this.returnUrl]);
+    },(error: HttpErrorResponse)=>{
+        this.loading=true;
+        console.log("error");
+    })
     /*this.authenticationService.login(this.model.username, this.model.password)
         .subscribe(
             data => {

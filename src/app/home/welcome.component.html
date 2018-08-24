@@ -1,13 +1,26 @@
-﻿<div class="panel panel-primary">
-    <div class="panel-heading">
-        hello{{pageTitle}}
-    </div>
-    <div class="panel-body">
-        
-        <div class="row">         
-            <div>
-                <img src="./app/assets/images/logo.jpg" />
-            </div>             
+﻿
+<div class="row">
+    <!-- ngIf: data.AllowTraining --><div class="col-sm-6 col-lg-3 ng-scope" ng-if="data.AllowTraining">
+        <div class="card">
+            <a routerLink="/stores">
+                <div class="card-block p-3 clearfix" style="cursor: pointer;"  role="button" tabindex="0" style="">
+                        <i class="fa fa-laptop bg-info p-3 font-2xl mr-3 float-left" style="background-color: #1175b1 !important"></i>
+                        <div class="text-uppercase text-muted font-weight-bold font-xs mb-0 mt-2" style="line-height: 50px;">Training</div>
+                    </div>
+            </a>
+            
         </div>
-    </div>
+    </div><!-- end ngIf: data.AllowTraining -->
+    <!-- ngIf: data.AllowTesting --><div class="col-sm-6 col-lg-3 ng-scope" ng-if="data.AllowTesting">
+        <div class="card">
+            <a routerLink="/stores">
+                <div class="card-block p-3 clearfix" style="cursor: pointer;" ng-click="goTesting()" role="button" tabindex="0">
+                        <i class="fa fa-laptop bg-info p-3 font-2xl mr-3 float-left" style="background-color: #1175b1 !important;"></i>
+                        <div class="text-uppercase text-muted font-weight-bold font-xs mb-0 mt-2" style="line-height: 50px;">Testing</div>
+                    </div>
+            </a>
+           
+        </div>
+    </div><!-- end ngIf: data.AllowTesting -->
+    <!--/.col-->
 </div>

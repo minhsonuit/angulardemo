@@ -1,3 +1,4 @@
+import { AuthGuard } from './_guards/auth.guard';
 
 import { Routes, RouterModule } from '@angular/router'
 import { ModuleWithProviders } from '@angular/core/src/metadata/ng_module';
@@ -8,7 +9,7 @@ import { RegisterComponent } from 'src/app/register/register.component';
 
 export const appRoutes: Routes = [
     { path: '', redirectTo: 'welcome', pathMatch:'full' },
-    { path: 'welcome', component: WelcomeComponent },
+    { path: 'welcome', component: WelcomeComponent, canActivate:[AuthGuard] },
     {path:'home',component:StoreComponent},
     {path:'login',component:LoginComponent},
     {path:'register',component:RegisterComponent},
