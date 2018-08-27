@@ -19,6 +19,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { StoreDetailComponent } from './store-detail/store-detail.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
+import { QuestionComponent } from './question/question.component';
+import { QuestionDetailComponent } from './question-detail/question-detail.component';
 
 
 
@@ -35,6 +37,8 @@ import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/compiler/src/
     SettingComponent,
     LoginComponent,
     RegisterComponent,
+    QuestionComponent,
+    QuestionDetailComponent,
 
 
 

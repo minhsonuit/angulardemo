@@ -1,3 +1,4 @@
+import { QuestionComponent } from './question/question.component';
 import { AuthGuard } from './_guards/auth.guard';
 
 import { Routes, RouterModule } from '@angular/router'
@@ -13,5 +14,6 @@ export const appRoutes: Routes = [
     {path:'home',component:StoreComponent},
     {path:'login',component:LoginComponent},
     {path:'register',component:RegisterComponent},
+    {path:'questions',component:QuestionComponent},
 ];
 export const appRouting: ModuleWithProviders = RouterModule.forRoot(appRoutes);
