@@ -218,3 +218,18 @@
         background-color: transparent;
         border-color: #ff5454;
     }
+    .confirm-title
+    {
+      font-size: 22px;
+      line-height: 20px;
+    }
+    .confirm-primary
+    {
+      color: #1175b1;
+    }
+    .row-question
+    {
+      clear: both;
+      margin-top: 12px;
+      display:-webkit-box;
+    }

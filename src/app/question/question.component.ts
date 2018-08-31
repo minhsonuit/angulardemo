@@ -27,6 +27,17 @@ export class QuestionComponent implements OnInit {
     Answer = {Id:1,Name:"Cau hoi so 1",CreatedDateTime:new Date(),IsResult:false};
     this.question.Answers=[...this.question.Answers,Answer];
   }
+  count = 0;
+  getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
+  run()
+  {
+    setInterval(()=>{
+      console.log(`Time :${this.count++} value ${this.getRandomInt(1000)}`)
+    },10)
+
+  }
 
   ngOnInit() {
   }
