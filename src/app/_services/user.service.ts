@@ -4,6 +4,7 @@ import { User } from './../_models/user.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Auth } from '../_models/auth.model';
 
 @Injectable({
   providedIn: 'root'
@@ -28,13 +29,26 @@ export class UserService {
   }
   userAuthentication(userName,passWord)
   {
-    var data = "username=" + userName + "&password=" + passWord + "&grant_type=password";
-    var reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-urlencoded','No-Auth':'True' });
+    var data = "username=" + userName + "&password=" + passWord + "&grant_type=password&client_id=ngAuthApp";
+    console.log(BASE_URL + '/token')
+  var reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-urlencoded'/*,'No-Auth':'True' */});
     return this.httpClient.post(BASE_URL + '/token', data, { headers: reqHeader });
+    /*rs.subscribe((data:any)=>{
+      //console.log(data)
+      localStorage.setItem("user",JSON.stringify(data));
+      var t =JSON.parse(localStorage.getItem("user"));
+      let myAuth: Auth;
+      myAuth = new Auth(t);
+      console.log(myAuth);
+      //this.userInfo.next(data)
+  })
+  return rs;*/
+    //return this.httpClient.post(BASE_URL + '/token', data, { headers: reqHeader });
   }
   getUserClaims(){
+    //return;
     var header= new HttpHeaders({'Authorization':'Bearer '+localStorage.getItem('userToken')})
-    var result=this.httpClient.get(BASE_URL+'/api/GetUserClaims',{headers:header});
+    var result=this.httpClient.get(BASE_URL+'/api/Account/GetUserClaims',{headers:header});
     result.subscribe((data:any)=>{
       console.log(data)
       this.userInfo.next(data)

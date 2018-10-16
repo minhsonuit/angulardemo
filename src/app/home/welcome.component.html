@@ -11,7 +11,8 @@
             
         </div>
     </div><!-- end ngIf: data.AllowTraining -->
-    <!-- ngIf: data.AllowTesting --><div class="col-sm-6 col-lg-3 ng-scope" ng-if="data.AllowTesting">
+    <!-- ngIf: data.AllowTesting -->
+    <div class="col-sm-6 col-lg-3 ">
         <div class="card">
             <a routerLink="/stores">
                 <div class="card-block p-3 clearfix" style="cursor: pointer;" ng-click="goTesting()" role="button" tabindex="0">
@@ -22,7 +23,8 @@
            
         </div>
     </div><!-- end ngIf: data.AllowTesting -->
-    <!-- ngIf: data.AllowTesting --><div class="col-sm-6 col-lg-3 ng-scope" ng-if="data.AllowTesting">
+    <!-- ngIf: data.AllowTesting -->
+    <div class="col-sm-6 col-lg-3 ">
         <div class="card">
             <a routerLink="/questions">
                 <div class="card-block p-3 clearfix" style="cursor: pointer;" ng-click="goTesting()" role="button" tabindex="0">
@@ -32,6 +34,17 @@
             </a>
            
         </div>
+    </div>
+    <div class="col-sm-6 col-lg-3 ">
+        <div class="card">
+                <a routerLink="/tokens">
+                    <div class="card-block p-3 clearfix" style="cursor: pointer;" ng-click="goTesting()" role="button" tabindex="0">
+                            <i class="fa fa-laptop bg-info p-3 font-2xl mr-3 float-left" style="background-color: #1175b1 !important;"></i>
+                            <div class="text-uppercase text-muted font-weight-bold font-xs mb-0 mt-2" style="line-height: 50px;">TOKENS</div>
+                        </div>
+                </a>
+               
+            </div>
     </div><!-- end ngIf: data.AllowTesting -->
 
     <!--/.col-->

@@ -1,0 +1,49 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-question">{{question.Id==null?"Thêm":"Cập nhật"}}   câu hỏi</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+          <div class="form-group">
+              <label for="Name" class="text-bold  ">Nội dung câu hỏi <span class="text-danger">*</span></label>
+              <textarea rows="3" name="Name" [(ngModel)]="question.Name" class="form-control" placeholder="name"></textarea>
+           </div>
+         <div class="form-group">
+            <label for="Name" class="text-bold">Câu trả lời<span class="text-danger">*</span></label>
+            <div class="btn-group ng-scope pull-right"><button type="button" class="btn btn-outline-primary btn-sm" (click)="onClickAddAnswer()" ><i class="fa fa-plus"></i></button><button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-close"></i></button></div>
+         </div> 
+        <!-- answers -->
+         <div *ngIf="question.Answers && question.Answers.length">
+            <div  class="form-group row-question" *ngFor="let answer of question.Answers; let index=index; let odd=odd; let even=even;" (click)="onSelectedStore(store)" >
+                <div class="col-sm-1"><label for="Name" class="text-bold  ">{{index}} <span class="text-danger">*</span></label></div>
+                <div class="col-sm-10">
+                    <input [(ngModel)]="answer.Name" name="answer.name[]" class="form-control" placeholder="name"/>
+                </div>            
+                <div class="col-sm-1">
+                    <div class="btn-group ng-scope pull-right1"><button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-close"></i></button></div>
+                </div>                                                               
+            </div>
+        </div>
+        <!-- answers -->               
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
+  
+  
+  <div class="card-header">
+      <div class="row">
+          <div class="col-md-8">
+              <button class="btn btn-outline-primary" (click)="open(content)" ><i class="fa fa-plus"></i> Tạo mới</button>
+          </div>
+          <div class="col-md-4">
+              <!-- ngIf: filterState.State == 0 --><button class="btn btn-outline-primary pull-right ng-scope" ng-click="applyFilter()" ng-if="filterState.State == 0">Lọc dữ liệu <i class="fa fa-filter" aria-hidden="true"></i></button><!-- end ngIf: filterState.State == 0 -->
+              <!-- ngIf: filterState.State == 1 -->
+          </div>
+      </div>
+  </div>

@@ -34,6 +34,7 @@ login() {
     this.authenticationService.userAuthentication(this.model.username, this.model.password)
     .subscribe((data:any)=>{
         localStorage.setItem('userToken',data.access_token);
+        localStorage.setItem("user",JSON.stringify(data));
         this.authenticationService.getLoginData();
         this.router.navigate([this.returnUrl]);
     },(error: HttpErrorResponse)=>{

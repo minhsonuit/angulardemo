@@ -21,7 +21,11 @@ import { StoreDetailComponent } from './store-detail/store-detail.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
 import { QuestionComponent } from './question/question.component';
 import { QuestionDetailComponent } from './question-detail/question-detail.component';
-
+import { TokenComponent } from './token/token.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormModalComponent } from './form-modal/form-modal.component';
+import { QuestionModalComponent } from './question-modal/question-modal.component';
+import { ControlSidebarComponent } from './control-sidebar/control-sidebar.component';
 
 
 
@@ -39,6 +43,10 @@ import { QuestionDetailComponent } from './question-detail/question-detail.compo
     RegisterComponent,
     QuestionComponent,
     QuestionDetailComponent,
+    TokenComponent,
+    FormModalComponent,
+    QuestionModalComponent,
+    ControlSidebarComponent,
 
 
 
@@ -50,7 +58,7 @@ import { QuestionDetailComponent } from './question-detail/question-detail.compo
     StoreModule,
     storeRouting,
     ReactiveFormsModule,
-    
+    NgbModule.forRoot()    
   ],
   providers: [AuthGuard,UserService],
   bootstrap: [AppComponent],
@@ -59,5 +67,8 @@ import { QuestionDetailComponent } from './question-detail/question-detail.compo
     /*NO_ERRORS_SCHEMA*/
   ],
   exports:[],
+  entryComponents: [
+    FormModalComponent
+  ]
 })
 export class AppModule { }
